@@ -24,8 +24,6 @@
 
 20 tests passing (498ms)
 
-## Setup
-
 ## Coverage Report
 
 | File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines |
@@ -35,6 +33,8 @@
 
 > All files have 100% statement, function, and line coverage, but branch coverage is 61.54%.
 
+## Setup
+Install all the node dependencies.
 ```bash
 $ npm install
 ```
@@ -47,93 +47,37 @@ $ npm run compile
 
 for a unit testing smart contract using the command line.
 
-```
+```bash
 $ npm run test
 ```
-expecting `sample-test.js` result.
-
 
 after testing if you want to deploy the contract using the command line.
 
+To Run locally:
 ```bash
-
-$ npm run test-rpc
-# Open another Terminal
-$ npm run deploy-local
-
-# result in npx hardhat node Terminal
-web3_clientVersion
-eth_chainId
-eth_accounts
-eth_chainId
-eth_estimateGas
-eth_gasPrice
-eth_sendTransaction
-  Contract deployment: <UnrecognizedContract>
-  Contract address:    0x5fb...aa3
-  Transaction:         0x4d8...945
-  From:                0xf39...266
-  Value:               0 ETH
-  Gas used:            323170 of 323170
-  Block #1:            0xee6...85d
-
-eth_chainId
-eth_getTransactionByHash
-eth_blockNumber
-eth_chainId (2)
-eth_getTransactionReceipt
-
-# result in npx hardhat run Terminal
-Initial Coin Offering (ICO) contract deployed to: 0x5Fb...aa3
-
+$npm run deploy:local
 ```
-your can edit deploy network endpoint at `hardhat.config.js`.
 
-```javascript
-module.exports = {
-  networks: {
-        {
-        localhost: {
-          url: "http://127.0.0.1:8545"
-        },
-        hardhat: {
-          // See its defaults
-        }
-  }
-};
+To Run on testnet:
+First setup the .env file by renaming the [sample.env](.sample.env) file to `.env`.
 
+Add all the required attributes in `.env` file.
+```bash
+$npm run deploy:local
 ```
-Example customized function  
-If you want to pay token fee to the miner or validator in the network.
-```javascript
-    // pragma solidity 0.8.0
-    // Solidity 0.8.X has an integrated SafeMath Library
-    // override function transfer to distribute fee to miner or validator in the network
-    /* Diagram transfer with token fees
-      ##### Before #####
-      A balance: 101
-      B balance: 0
-      C balance: 0
 
-      A.transfer(B.address,101);
-                    A
-                    |	
-                    | transfer Tx
-                    |_____ 
-                    |     |
-                    v     v				
-                    B     C
+Originally deployed at:
+https://mumbai.polygonscan.com/address/0x531e5822c8E724D6970642779d724c2E7D5e2B2E
 
-      ##### After #####
-      A balance: 0
-      B balance: 100
-      C balance: 1
-    */
-    function transfer(address account,uint256 amount) public override returns(bool){
-        require(amount % 10 != 0, "ERC20: insufficient funds");
-        uint256 fee = amount % 10;
-        _transfer(msg.sender,account,amount-fee);
-        _transfer(msg.sender,block.coinbase,fee);
-        return true;
-    }
-```
+## Pricing
+The pricing is designed by setting up the price tiers and choosing the appropriate tier.
+
+The pricing is designed such that for example if the price of token for tier 3 is 6. Then 1wei will get a user (1*1000)/6=166 tokens (not rounded).
+
+## Further Improvements
+Following further improvements can make the contract even more performant.
+- Adding a vesting schedule.
+- Refund of tokens to original wallets if `SOFT_CAP` is not achieved.
+- Improved pricing.
+- Multiple sale rounds.
+- Pre-sale `pause` and `end` functionality.

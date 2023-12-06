@@ -7,13 +7,14 @@
     "clean": "npx hardhat clean && rm -rf cache coverage coverage.json",
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
-    "test-rpc": "npx hardhat node",
-    "deploy-local": "npx hardhat run scripts/deploy.js --network localhost",
+    "deploy-local": "npx hardhat deploySampleICO --network hardhat",
+    "deploy-testnet": "npx hardhat deploySampleICO --network testnet",
     "coverage": "npx hardhat coverage"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Haseeb Raja",
+  "license": "MIT",
+  "repository": "https://github.com/raadhshenshahhaseeb/test-erc20-token",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
