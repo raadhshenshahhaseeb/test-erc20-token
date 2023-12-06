@@ -79,10 +79,6 @@ contract ICO is ERC20, ReentrancyGuard {
         currentPriceTier = priceTiers[tierIndex];
     }
 
-    function managePresale(bool condition) public onlyOwner {
-        isPresale = condition;
-    }
-
     function getCurrentPriceTier() public view returns (uint256) {
         return currentPriceTier;
     }

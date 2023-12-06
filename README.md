@@ -66,6 +66,11 @@ Add all the required attributes in `.env` file.
 $npm run deploy:local
 ```
 
+To verify, you must add the appropriate testnet scan key in your `.env`, then run:
+```bash
+npx hardhat verify-contract --address YOUR_CONTRACT_ADDRESS
+```
+
 Originally deployed at:
 https://mumbai.polygonscan.com/address/0x531e5822c8E724D6970642779d724c2E7D5e2B2E
 
