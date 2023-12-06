@@ -86,3 +86,4 @@ Following further improvements can make the contract even more performant.
 - Improved pricing.
 - Multiple sale rounds.
 - Pre-sale `pause` and `end` functionality.
+- Instead of transferring the amount to owner, we could store it in contract and once soft_cap is achieved, the owner would be able to withdraw the funds.
