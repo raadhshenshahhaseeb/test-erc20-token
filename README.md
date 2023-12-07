@@ -77,7 +77,7 @@ https://mumbai.polygonscan.com/address/0x531e5822c8E724D6970642779d724c2E7D5e2B2
 ## Pricing
 The pricing is designed by setting up the price tiers and choosing the appropriate tier.
 
-The pricing is designed such that for example if the price of token for tier 3 is 6. Then 1wei will get a user (1*1000)/6=166 tokens (not rounded).
+The pricing is designed such that for example if the price of token for tier 3 is 6. Then 1 wei will get a user (1*1000)/6=166 tokens (not rounded).
 
 ## Further Improvements
 Following further improvements can make the contract even more performant.
