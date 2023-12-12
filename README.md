@@ -83,7 +83,7 @@ The pricing is designed such that for example if the price of token for tier 3 i
 Following further improvements can make the contract even more performant.
 - Adding a vesting schedule.
 - Refund of tokens to original wallets if `SOFT_CAP` is not achieved.
-- Improved pricing.
+- Improved pricing and tiers.
 - Multiple sale rounds.
 - Pre-sale `pause` and `end` functionality.
 - Instead of transferring the amount to owner, we could store it in contract and once soft_cap is achieved, the owner would be able to withdraw the funds.
